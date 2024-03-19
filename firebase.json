@@ -1,0 +1,16 @@
+{
+    "react-native": {
+      "android_background_activity_names": "NotActuallyAnActivity",
+  
+  
+      "app_check_token_auto_refresh": true,
+      "crashlytics_debug_enabled": true,
+      "messaging_auto_init_enabled": true,
+      "messaging_android_headless_task_timeout": 30000,
+      "messaging_android_notification_channel_id": "",
+      "messaging_android_notification_color": "@color/hotpink",
+      "messaging_ios_auto_register_for_remote_messages": true
+  
+      
+    }
+  }

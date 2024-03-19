@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "149405539638",
+    "firebase_url": "https://wallet-2de0c-default-rtdb.firebaseio.com",
+    "project_id": "wallet-2de0c",
+    "storage_bucket": "wallet-2de0c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149405539638:android:62dc3c540e8ccb97bb2797",
+        "android_client_info": {
+          "package_name": "com.businessshop.bspay"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA78JCrli7dqcEkHZ9tB1YTdP744o-80cI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149405539638:android:5c8ac69cc1e22053bb2797",
+        "android_client_info": {
+          "package_name": "com.businessshop.wallet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA78JCrli7dqcEkHZ9tB1YTdP744o-80cI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

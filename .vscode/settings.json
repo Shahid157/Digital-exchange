@@ -1,0 +1,33 @@
+{
+  "cSpell.words": [
+    "animatable",
+    "businessshop",
+    "chartiful",
+    "fontsize",
+    "formik",
+    "gorhom",
+    "metamap",
+    "Pressable",
+    "ptomasroos",
+    "qrcode",
+    "reduxjs",
+    "SMALLBOX",
+    "swiper",
+    "twotalltotems",
+    "Weigth",
+    "XSMALL",
+    "zxcvbn"
+  ],
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false, // required
+  "editor.formatOnType": true, // required
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "files.autoSave": "onFocusChange", // optional but recommended,
+  "eslint.options": {},
+  "eslint.run": "onSave",
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}

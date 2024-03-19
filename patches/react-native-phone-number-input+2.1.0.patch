@@ -1,0 +1,87 @@
+diff --git a/node_modules/react-native-phone-number-input/lib/index.d.ts b/node_modules/react-native-phone-number-input/lib/index.d.ts
+index cd625e5..a0424ab 100644
+--- a/node_modules/react-native-phone-number-input/lib/index.d.ts
++++ b/node_modules/react-native-phone-number-input/lib/index.d.ts
+@@ -30,6 +30,7 @@ export interface PhoneInputProps {
+   layout?: "first" | "second";
+   filterProps?: CountryFilterProps;
+   countryPickerProps?: any;
++  onFocus ? : () => void;
+ }
+ export interface PhoneInputState {
+   code: CallingCode | undefined;
+@@ -302,6 +303,7 @@ export default class PhoneInput extends Component<
+   getNumberAfterPossiblyEliminatingZero: () => {number: string , formattedNumber: string };
+   onChangeText: (text: string) => void;
+   render(): JSX.Element;
++  onFocus : () => void;
+ }
+ 
+ export function isValidNumber(number: string, countryCode: CountryCode ): boolean;
+\ No newline at end of file
+diff --git a/node_modules/react-native-phone-number-input/lib/index.js b/node_modules/react-native-phone-number-input/lib/index.js
+index b89c388..217cdae 100644
+--- a/node_modules/react-native-phone-number-input/lib/index.js
++++ b/node_modules/react-native-phone-number-input/lib/index.js
+@@ -91,6 +91,13 @@ export default class PhoneInput extends PureComponent {
+     }
+   };
+ 
++  onFocus = ()=>{
++    const { onFocus } = this.props;
++    if (onFocus) {
++     onFocus()
++    }
++  }
++
+   onChangeText = (text) => {
+     this.setState({ number: text });
+     const { onChangeText, onChangeFormattedText } = this.props;
+@@ -158,9 +165,9 @@ export default class PhoneInput extends PureComponent {
+       countryPickerProps = {},
+       filterProps = {},
+       countryPickerButtonStyle,
+-      layout = "first",
+     } = this.props;
+     const { modalVisible, code, countryCode, number, disabled } = this.state;
++    const { layout = "first", flagSize } = this.props;
+     return (
+       <CountryModalProvider>
+         <View
+@@ -196,9 +203,16 @@ export default class PhoneInput extends PureComponent {
+               {...countryPickerProps}
+             />
+             {code && layout === "second" && (
++              <>
++                <Flag
++                countryCode={countryCode}
++                flagSize={flagSize ? flagSize : DEFAULT_THEME.flagSize}
++              />
+               <Text
+                 style={[styles.codeText, codeTextStyle ? codeTextStyle : {}]}
+               >{`+${code}`}</Text>
++              </>
++
+             )}
+             {!disableArrowIcon && (
+               <React.Fragment>
+@@ -229,6 +243,7 @@ export default class PhoneInput extends PureComponent {
+               keyboardAppearance={withDarkTheme ? "dark" : "default"}
+               keyboardType="number-pad"
+               autoFocus={autoFocus}
++              onFocus={this.onFocus}
+               {...textInputProps}
+             />
+           </View>
+diff --git a/node_modules/react-native-phone-number-input/lib/styles.js b/node_modules/react-native-phone-number-input/lib/styles.js
+index 1789ce7..3f07328 100644
+--- a/node_modules/react-native-phone-number-input/lib/styles.js
++++ b/node_modules/react-native-phone-number-input/lib/styles.js
+@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
+   dropDownImage: {
+     height: 14,
+     width: 12,
++    tintColor : "white",
+   },
+   textContainer: {
+     flex: 1,
